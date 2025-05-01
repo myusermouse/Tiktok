@@ -7,3 +7,8 @@ function redirectEmailLogin() {
   // Replace 'phone-email-login.html' with your actual file name
   window.location.href = '/Pages/Gmail/gmail.html';
 }
+
+function redirectFacebookLogin() {
+  // Replace 'phone-email-login.html' with your actual file name
+  window.location.href = '/Pages/Facebook/facebook.html';
+}
