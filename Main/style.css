@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('./BACKGROUND-CONTENT/20250501_142357.png'); /* এখানে শুধু ইমেজের নাম পরিবর্তন করুন */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Mobile view (zoomed in) */
+@media only screen and (max-width: 767px) {
+    body {
+        background-size: 180% auto;
+        background-position: top center;
+    }
+}
+
+/* Desktop view (full image) */
+@media only screen and (min-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: top center;
+    }
+}
+
+.logo {
+    margin: 40px 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.logo span:first-child {
+    color: #fe2c55;
+}
+
+.logo span:last-child {
+    color: #25f4ee;
+}
+
+.login-container {
+    background-color: #121212;
+    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.login-btn i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.phone-email {
+    background-color: #fe2c55;
+    color: white;
+}
+
+.facebook {
+    background-color: #1877f2;
+    color: white;
+}
+
+.google {
+    background-color: white;
+    color: #333;
+}
+
+.twitter {
+    background-color: #1da1f2;
+    color: white;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #777;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #333;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+.footer a {
+    color: #25f4ee;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+    }
+    
+    .logo {
+        font-size: 32px;
+        margin: 30px 0;
+    }
+}

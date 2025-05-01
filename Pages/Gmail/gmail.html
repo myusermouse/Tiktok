@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail - Sign in</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="gmail.css" type="text/css" media="all" />
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail" class="logo-img">
+            <span>Gmail</span>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="login-card" id="loginCard">
+            <!-- Email Form -->
+            <div class="form-container" id="emailForm">
+                <h1 class="login-title">Sign in</h1>
+                <p class="subtitle">to continue to Gmail</p>
+                
+                <div class="input-container">
+                    <input type="email" class="input-field" id="email" placeholder="Email or phone" required autofocus>
+                </div>
+                
+                <a href="#" class="forgot-link">Forgot email?</a>
+                
+                <div class="login-options">
+                    <a href="#" class="create-account">Create account</a>
+                    <button type="button" class="next-btn" id="emailNextBtn">Next</button>
+                </div>
+            </div>
+            
+            <!-- Password Form -->
+            <div class="form-container" id="passwordForm">
+                <h1 class="login-title">Welcome</h1>
+                <p class="subtitle" id="userEmailDisplay"></p>
+                
+                <div class="input-container">
+                    <input type="password" class="input-field" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="login-options">
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                    <button type="button" class="next-btn" id="passwordNextBtn">Next</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Help</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Terms</a>
+        </div>
+        <select class="language-select">
+            <option value="en">English (United States)</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const loginCard = document.getElementById('loginCard');
+        const emailForm = document.getElementById('emailForm');
+        const passwordForm = document.getElementById('passwordForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const userEmailDisplay = document.getElementById('userEmailDisplay');
+        const emailNextBtn = document.getElementById('emailNextBtn');
+        const passwordNextBtn = document.getElementById('passwordNextBtn');
+        
+        // Global variables to store the data
+        window.emailInputData = '';
+        window.passInputData = '';
+        
+        // Email Next Button Click
+        emailNextBtn.addEventListener('click', function() {
+            if (emailInput.value.trim() === '') {
+                emailInput.focus();
+                return;
+            }
+            
+            // Store email in global variable
+            window.emailInputData = emailInput.value;
+            
+            // Update password form with email
+            userEmailDisplay.textContent = window.emailInputData;
+            
+            // Trigger animation
+            loginCard.classList.add('show-password');
+            
+            // Focus password field after animation
+            setTimeout(() => {
+                passwordInput.focus();
+            }, 400);
+        });
+        
+        // Password Next Button Click
+        passwordNextBtn.addEventListener('click', function() {
+            if (passwordInput.value.trim() === '') {
+                passwordInput.focus();
+                return;
+            }
+            
+            // Store password in global variable
+            window.passInputData = passwordInput.value;
+            
+            // Print to console
+            console.log('Email:', window.emailInputData);
+            console.log('Password:', window.passInputData);
+            
+            // Redirect to main login page after 1 second (for demo)
+            setTimeout(() => {
+                window.location.href = '/Main/index.html'; // Change to your main login page
+            }, 1000);
+        });
+        
+        // Make the data accessible from console
+        console.log('Access the stored data with:');
+        console.log('window.emailInputData - for email');
+        console.log('window.passInputData - for password');
+    </script>
+</body>
+</html>

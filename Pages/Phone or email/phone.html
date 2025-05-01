@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Phone or Email</title>
+    <link rel="stylesheet" href="phone.css" type="text/css" media="all" />
+  </head>
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok - Phone/Email Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <button class="back-btn" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="logo">
+            <span>Tik</span><span>Tok</span>
+        </div>
+        <div style="width: 20px;"></div> <!-- Spacer for alignment -->
+    </div>
+    
+    <div class="login-container">
+        <h1>Log in with phone or email</h1>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="phoneEmail">Phone or email</label>
+                <input type="text" id="phoneEmail" placeholder="Enter phone or email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            
+            <div class="options">
+                <a href="#">Switch to phone verification</a>
+                <a href="#">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="login-btn">Log in</button>
+            
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            
+            <div class="footer">
+                Don't have an account? <a href="/Main/index.html">Sign up</a>
+            </div>
+        </form>
+    </div>
+  <script src="phone.js"></script>  
+  </body>
+</html>
